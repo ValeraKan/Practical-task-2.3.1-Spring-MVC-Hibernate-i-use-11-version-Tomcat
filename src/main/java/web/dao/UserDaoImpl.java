@@ -6,7 +6,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import web.entity.User;
-import web.entity.User;
 
 
 import java.util.List;
@@ -27,9 +26,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void saveUser(User user) {
         if (user.getId() == null) {
-            entityManager.persist(user); // новая сущность
+            entityManager.persist(user);
         } else {
-            entityManager.merge(user);   // обновление существующей
+            entityManager.merge(user);
         }
     }
 
