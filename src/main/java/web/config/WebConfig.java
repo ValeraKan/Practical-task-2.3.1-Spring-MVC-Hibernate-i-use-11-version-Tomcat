@@ -35,7 +35,6 @@ public class WebConfig {
         return ds;
     }
 
-    // --- EntityManagerFactory ---
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
@@ -53,7 +52,6 @@ public class WebConfig {
         return emf;
     }
 
-    // --- Transaction Manager ---
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
@@ -64,7 +62,6 @@ public class WebConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    // --- Thymeleaf ---
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();

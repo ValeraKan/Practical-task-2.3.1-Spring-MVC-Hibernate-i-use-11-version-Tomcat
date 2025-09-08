@@ -22,7 +22,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Показ всех пользователей
     @GetMapping("/")
     public String showAllUsers(Model model) {
         List<User> allUsers = userService.getAllUsers();
@@ -30,7 +29,6 @@ public class UserController {
         return "all-users";
     }
 
-    // Форма для добавления нового пользователя
     @GetMapping("/addNewUser")
     public String addNewUser(Model model) {
         User user = new User();
@@ -38,9 +36,8 @@ public class UserController {
         return "user-info";
     }
 
-    // Сохранение нового или обновлённого пользователя
     @PostMapping("/saveUser")
-    public String saveUser(@RequestParam(name = "id", required = false) Integer id,
+    public String saveUser(@RequestParam(name = "id", required = false) Long id,
                            @RequestParam("name") String name,
                            @RequestParam("email") String email) {
         User user = new User();
@@ -53,17 +50,15 @@ public class UserController {
         return "redirect:/";
     }
 
-    // Форма для редактирования пользователя
     @GetMapping("/updateUser")
-    public String updateUser(@RequestParam("id") Integer id, Model model) {
+    public String updateUser(@RequestParam("id") Long id, Model model) {
         User user = userService.getUser(id);
         model.addAttribute("user", user);
         return "user-info";
     }
 
-    // Удаление пользователя
     @PostMapping("/deleteUser")
-    public String deleteUser(@RequestParam("id") Integer id) {
+    public String deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/";
     }

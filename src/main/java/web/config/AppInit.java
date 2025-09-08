@@ -6,16 +6,16 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{WebConfig.class}; // основной конфиг приложения
+        return new Class[]{WebConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return null; // можно оставить null, если все настройки в WebConfig
+        return null;
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"}; // аналог <url-pattern>/</url-pattern>
+        return new String[]{"/"};
     }
 }
